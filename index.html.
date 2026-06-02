@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GapAtlas Demo</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: #121a2b;
+      --panel-2: #172235;
+      --text: #e8edf7;
+      --muted: #9aa7bd;
+      --gold: #d4a63c;
+      --teal: #34b3a0;
+      --red: #d96b6b;
+      --border: rgba(255,255,255,0.08);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Inter, Arial, sans-serif; background: var(--bg); color: var(--text); }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 24px; }
+    .header, .grid, .actions, .two-col { display: grid; gap: 16px; }
+    .header { grid-template-columns: 1.5fr 1fr; align-items: start; margin-bottom: 20px; }
+    .brand { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 20px; }
+    .brand h1 { margin: 0 0 8px; font-size: 28px; }
+    .brand p { margin: 6px 0; color: var(--muted); }
+    .summary { background: linear-gradient(135deg, rgba(212,166,60,0.16), rgba(52,179,160,0.12)); border: 1px solid rgba(212,166,60,0.25); border-radius: 16px; padding: 20px; }
+    .grid { grid-template-columns: repeat(6, 1fr); margin-bottom: 20px; }
+    .card, .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 18px; }
+    .kpi-label { color: var(--muted); font-size: 13px; margin-bottom: 10px; }
+    .kpi-value { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+    .kpi-note { color: var(--gold); font-size: 13px; }
+    .actions { grid-template-columns: 1.2fr 1fr 1fr; margin-bottom: 20px; }
+    .panel h2 { margin: 0 0 14px; font-size: 18px; }
+    ul { margin: 0; padding-left: 18px; }
+    li { margin: 8px 0; color: var(--muted); }
+    .bars { display: grid; gap: 12px; }
+    .bar-row { display: grid; grid-template-columns: 68px 1fr 54px; align-items: center; gap: 10px; font-size: 13px; }
+    .track { height: 12px; background: var(--panel-2); border-radius: 999px; overflow: hidden; }
+    .fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--teal)); }
+    .two-col { grid-template-columns: 1.2fr 1fr; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--border); font-size: 14px; }
+    th { color: var(--muted); font-weight: 600; }
+    .tag { display: inline-block; padding: 4px 8px; border-radius: 999px; font-size: 12px; }
+    .warn { background: rgba(217,107,107,0.16); color: #ffb4b4; }
+    .ok { background: rgba(52,179,160,0.16); color: #99f0df; }
+    @media (max-width: 1100px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+      .actions, .header, .two-col { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr; }
+      .wrap { padding: 14px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="header">
+      <div class="brand">
+        <h1>FlagWise</h1>
+        <p><strong>Property:</strong> Econo Lodge</p>
+        <p><strong>Date:</strong> Monday, June 1, 2026</p>
+        <p><strong>Summary:</strong> Strong next 3-day pace, but forward demand and guest-experience issues need action.</p>
+      </div>
+      <div class="summary">
+        <h2 style="margin:0 0 10px;">Owner Focus</h2>
+        <p style="margin:0; color:var(--text); line-height:1.6;">The next three nights are comparatively healthy, but occupancy softens fast after Wednesday. Direct mix is low at 31%, and guest feedback points to bathrooms, doors, and billing as top experience issues.</p>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card"><div class="kpi-label">Occupancy</div><div class="kpi-value">78.74%</div><div class="kpi-note">Current period</div></div>
+      <div class="card"><div class="kpi-label">ADR</div><div class="kpi-value">$59.72</div><div class="kpi-note">Average daily rate</div></div>
+      <div class="card"><div class="kpi-label">RevPAR</div><div class="kpi-value">$47.03</div><div class="kpi-note">Revenue per room</div></div>
+      <div class="card"><div class="kpi-label">Room Revenue</div><div class="kpi-value">$35.8k</div><div class="kpi-note">Current range</div></div>
+      <div class="card"><div class="kpi-label">Review Score</div><div class="kpi-value">3.78</div><div class="kpi-note">3rd-party average</div></div>
+      <div class="card"><div class="kpi-label">Direct Mix</div><div class="kpi-value">31%</div><div class="kpi-note">OTA is 69%</div></div>
+    </section>
+
+    <section class="actions">
+      <div class="panel">
+        <h2>Today’s Actions</h2>
+        <ul>
+          <li>Lift post-Wednesday pickup with 3-night weekday offers.</li>
+          <li>Shift more demand to direct booking channels.</li>
+          <li>Escalate bathroom, door, and billing fixes immediately.</li>
+        </ul>
+      </div>
+      <div class="panel">
+        <h2>Forward Occupancy</h2>
+        <div class="bars">
+          <div class="bar-row"><span>6/1</span><div class="track"><div class="fill" style="width:82.69%"></div></div><span>82.7%</span></div>
+          <div class="bar-row"><span>6/2</span><div class="track"><div class="fill" style="width:76.92%"></div></div><span>76.9%</span></div>
+          <div class="bar-row"><span>6/3</span><div class="track"><div class="fill" style="width:69.23%"></div></div><span>69.2%</span></div>
+          <div class="bar-row"><span>6/4</span><div class="track"><div class="fill" style="width:36.54%"></div></div><span>36.5%</span></div>
+          <div class="bar-row"><span>6/5</span><div class="track"><div class="fill" style="width:26.92%"></div></div><span>26.9%</span></div>
+          <div class="bar-row"><span>6/6</span><div class="track"><div class="fill" style="width:21.15%"></div></div><span>21.2%</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Issue Breakdown</h2>
+        <div class="bars">
+          <div class="bar-row"><span>Bath</span><div class="track"><div class="fill" style="width:78%"></div></div><span>High</span></div>
+          <div class="bar-row"><span>Doors</span><div class="track"><div class="fill" style="width:64%"></div></div><span>Med</span></div>
+          <div class="bar-row"><span>Billing</span><div class="track"><div class="fill" style="width:71%"></div></div><span>High</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="two-col">
+      <div class="panel">
+        <h2>Forward Pace Table</h2>
+        <table>
+          <thead><tr><th>Date</th><th>Occ</th><th>ADR</th><th>RevPAR</th><th>Room Rev</th></tr></thead>
+          <tbody>
+            <tr><td>6/1 Mon</td><td>82.69%</td><td>$59.44</td><td>$56.80</td><td>$2,555.99</td></tr>
+            <tr><td>6/2 Tue</td><td>76.92%</td><td>$59.81</td><td>$53.16</td><td>$2,392.28</td></tr>
+            <tr><td>6/3 Wed</td><td>69.23%</td><td>$60.35</td><td>$48.28</td><td>$2,172.59</td></tr>
+            <tr><td>6/4 Thu</td><td>36.54%</td><td>$62.59</td><td>$26.43</td><td>$1,189.30</td></tr>
+            <tr><td>6/5 Fri</td><td>26.92%</td><td>$59.42</td><td>$18.49</td><td>$831.90</td></tr>
+            <tr><td>6/6 Sat</td><td>21.15%</td><td>$59.11</td><td>$14.45</td><td>$650.25</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="panel">
+        <h2>Channel Status Board</h2>
+        <table>
+          <thead><tr><th>Channel</th><th>Mix</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>Direct</td><td>31%</td><td><span class="tag ok">Improve</span></td></tr>
+            <tr><td>OTA</td><td>69%</td><td><span class="tag warn">Too high</span></td></tr>
+            <tr><td>Guest Experience</td><td>3.78 score</td><td><span class="tag warn">Needs action</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
